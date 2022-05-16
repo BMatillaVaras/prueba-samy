@@ -1,0 +1,9 @@
+.main {
+    background-color: #f6f6f6;
+    &--productsList {
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
