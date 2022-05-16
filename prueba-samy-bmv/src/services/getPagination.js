@@ -1,5 +1,5 @@
-const searchElement = (data) => {
-    return fetch(`http://localhost:3100/images/search/${data}`)
+const getPagination = (page) => {
+    return fetch(`http://localhost:3100/images/page/${page}`)
     .then((response) => response.json())
     .then((data) => {
         return data.map((image) => {
@@ -16,4 +16,4 @@ const searchElement = (data) => {
     })
 }
 
-export default searchElement; 
+export default getPagination; 

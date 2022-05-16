@@ -4,9 +4,11 @@ import "./Header.scss"
 
 const Header = (props) => {
 
+    const {handleFilter, query} = props;
+
     const handleChange =(e) => {
         const data = e.target.value;
-        props.handleFilter(data);
+        handleFilter(data);
     }
 
     return (
@@ -20,6 +22,7 @@ const Header = (props) => {
                 type="text" 
                 placeholder={`You are looking for something`} className="header--input"
                 onChange={handleChange}
+                value={query}
             />
         </header>
     )

@@ -4,14 +4,23 @@ import "./Main.scss"
 
 const Main = (props) => {
 
-    const {productsData, likesCounter} = props;
+    const {productsData, likesCounter, lastProductRef} = props;
 
-    const products = productsData.map((product) => {
-        return (
-            <li key={product.id}>
-                <Product productData={product} likesCounter={likesCounter}/>
+    const products = productsData.map((product, index) => {
+        if( productsData.lenght === index + 1) {
+            return (
+                <li key={product.id}>
+                <Product productData={product} likesCounter={likesCounter} lastProductRef={lastProductRef}/>
             </li>
-        )
+            )
+        } else {
+            return (
+                <li key={product.id}>
+                    <Product productData={product} likesCounter={likesCounter} />
+                </li>
+            )
+        }
+        
     })
 
     return (
