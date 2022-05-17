@@ -32,4 +32,4 @@ npm start
 Con esto se habrán lanzado los servidores locales y podremos ver en nuestro navegador la aplicación y su funcionamiento. 
 
 
-
+La aplicación está realizada con React, y para los estilos se ha utilizado el preprocesador Sass.
