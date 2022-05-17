@@ -4,14 +4,13 @@ Esta es la prueba técnica realizada para Samy.
 
 Para poder verla bien, y que no haya problemas lo primero que hay que hacer es: 
 
-* Clonar el repositorio. *
+*Clonar el repositorio.*
 
-Una vez hecho tenemos que ejecutar 
+Una vez hecho tenemos entrar en ambas carpetas, "front-test-master" y "prueba-samy-belen", y ejecutar:
 
 ```
 npm install
-
-Dentro de ambas carpetas: front-test-master y prueba-samy-belen
+```
 
 ## La aplicación 
 
@@ -20,12 +19,12 @@ Tiene la posibilidad de cargar un scroll infinito con la paginación, así como 
 
 
 Para poder ejecutarla tenemos que: 
-1. * Entrar en la carpeta "front-test-master" y ejecutar :*
+1. *Entrar en la carpeta "front-test-master" y ejecutar :*
 ```
 npm run mocks
 ```
 
-2. * Entrar en la carpeta "prueba-samy-belen" y ejecutar: *
+2. *Entrar en la carpeta "prueba-samy-belen" y ejecutar:*
 ```
 npm start
 ```
