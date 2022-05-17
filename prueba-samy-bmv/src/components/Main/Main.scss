@@ -1,9 +1,14 @@
 .main {
     background-color: #f6f6f6;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px 25px;
     &--productsList {
-        text-decoration: none;
-        display: flex;
-        flex-direction: column;
+        list-style: none;
+        display: grid;
+        grid-template-columns: 1fr;
         justify-content: center;
     }
 }

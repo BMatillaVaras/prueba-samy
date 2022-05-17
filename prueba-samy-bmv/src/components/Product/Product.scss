@@ -1,0 +1,21 @@
+@import "../../styles/variables.scss";
+
+.article {
+    max-width: 350px;
+    &--price {
+        background-color: $bg-color-primary;
+        font-family: $font-family-price;
+        width: 0;
+        height: 0;
+        padding: 10px 0 0 10px;
+        position: relative;
+        top: 40px;
+        border-top: 60px solid $bg-color-primary;
+        border-right: 120px solid transparent;
+        border-bottom: 120px solid transparent;
+        border-left: 120px solid $bg-color-primary; 
+    }
+    &--img  {
+        max-width: 300px;
+    }
+}

@@ -3,10 +3,12 @@ import { useState } from "react";
 import likeIcon from "../../images/like_icon.png"
 import unlikeIcon from "../../images/unlike_icon.png"
 
-const Product = (props) => {
-    const {productData, likesCounter, lastProductRef} = props;
+import "./Product.scss"
 
-    const [like, setLike] = useState(props.liked)
+const Product = (props) => {
+    const {productData, likesCounter, lastProductRef, src} = props;
+
+    const [like, setLike] = useState(productData.liked)
 
     const handleClick =(e) => {
         if (like) {
@@ -19,75 +21,39 @@ const Product = (props) => {
     }
     return (
         <>
-        {lastProductRef ? (
-            <article ref={lastProductRef}>
-            <p>{productData.price} €</p>
-            <img src={productData.image} alt={`Imagen de ${productData.title}`} title={`Imagen de ${productData.title}`}/>
-            <div>
-                <h3>{productData.title}</h3>
-                <h4>{productData.author}</h4>
-            </div>
-            <div>
+            <article ref={lastProductRef} className="article">
+                <p className="article--price">{productData.price} €</p>
+                <img src={src} alt={`Imagen de ${productData.title}`} title={`Imagen de ${productData.title}`} className="article--img"/>
                 <div>
-                    <p>{productData.likes_count}</p>
-                    <button onClick={handleClick}>
-                    {like ? (
-                        <img 
-                            src={likeIcon} 
-                            alt="icono de un puño con un dedo hacia arriba para dar like" 
-                            title="icono de me gusta"
-                            id={productData.id}
-                        />
-                        ) : (
-                            <img 
-                            src={unlikeIcon} 
-                            alt="icono de un puño con un dedo hacia arriba para dar like" 
-                            title="icono de me gusta"
-                            id={productData.id}
-                        />
-                        )}
-                        
-                    </button>
-                    
+                    <h3>{productData.title}</h3>
+                    <h4>{productData.author}</h4>
                 </div>
-            </div>
-            
-        </article>
-        ) : (
-            <article>
-            <p>{productData.price} €</p>
-            <img src={productData.image} alt={`Imagen de ${productData.title}`} title={`Imagen de ${productData.title}`}/>
-            <div>
-                <h3>{productData.title}</h3>
-                <h4>{productData.author}</h4>
-            </div>
-            <div>
                 <div>
-                    <p>{productData.likes_count}</p>
-                    <button onClick={handleClick}>
-                    {like ? (
-                        <img 
-                            src={likeIcon} 
-                            alt="icono de un puño con un dedo hacia arriba para dar like" 
-                            title="icono de me gusta"
-                            id={productData.id}
-                        />
-                        ) : (
+                    <div>
+                        <p>{productData.likes_count}</p>
+                        <button onClick={handleClick}>
+                        {like ? (
                             <img 
-                            src={unlikeIcon} 
-                            alt="icono de un puño con un dedo hacia arriba para dar like" 
-                            title="icono de me gusta"
-                            id={productData.id}
-                        />
-                        )}
+                                src={likeIcon} 
+                                alt="icono de un puño con un dedo hacia arriba para dar like" 
+                                title="icono de me gusta"
+                                id={productData.id}
+                            />
+                            ) : (
+                                <img 
+                                src={unlikeIcon} 
+                                alt="icono de un puño con un dedo hacia arriba para dar like" 
+                                title="icono de me gusta"
+                                id={productData.id}
+                            />
+                            )}
+                            
+                        </button>
                         
-                    </button>
-                    
+                    </div>
                 </div>
-            </div>
             
-        </article>
-        )}
+            </article>
     
         </>
         

@@ -16,7 +16,8 @@ const Header = (props) => {
             <img 
                 src={logo} 
                 alt="logo de la empresa" 
-                title="logo de la empresa" className="header--logo"
+                title="logo de la empresa" 
+                className="header--logo"
             />
             <input 
                 type="text" 

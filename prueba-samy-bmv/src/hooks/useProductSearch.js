@@ -10,16 +10,21 @@ export default function useProductSearch(query, pageNumber) {
     const [hasMore, setHasMore] = useState(false);
 
     useEffect(() => {
+      setProducts([])
+    }, [query])
+    
+
+    useEffect(() => {
         setLoading(true);
         setError(false);
         getPagination(pageNumber).then((response) =>{
             setProducts(prevProducts => {
                 return [...prevProducts, ...response.map(product => product)]
             })
-            setHasMore(response.hasMore)
+            setHasMore(response.hasMore > 0)
             console.log(response)
         } )             
     }, [query, pageNumber])
     
-  return null;
+  return {loading, error, products, hasMore };
 }

@@ -15,19 +15,30 @@ function App() {
   const [query, setQuery] = useState('');
   const [pageNumber, setPageNumber] = useState(1);
 
+  const {loading, error, products, hasMore} = useProductSearch(query, pageNumber);
+
   const observer = useRef();
   const lastProductRef = useCallback( node => {
+    if (loading) return ;
+    // console.log(observer.current)
+    // if (observer.current) observer.current.disconnect()
+    // observer.current = new IntersectionObserver(entries => {
+    //   if (entries[0].isIntersecting && hasMore) {
+    //     setPageNumber(prevPageNumber => pervPageNumber + 1)
+    // })
+    if (node) observer.current.observer(node)
     console.log(node)
-  });
+  }, [loading.hasMore]);
 
-  // useProductSearch(query, pageNumber)
+
 
   useEffect(() => {
     getImages().then((response) => {
         setProductsData(response);
     });
   }, [])
-
+  
+  
   const handleFilter = (data) => {
     setQuery(data);
     setPageNumber(1);
@@ -46,6 +57,8 @@ function App() {
       <Main 
         productsData={productsData} 
         likesCounter={likesCounter} 
+        loading={loading}
+        error={error}
         lastProductRef={lastProductRef}
       />
     </div>

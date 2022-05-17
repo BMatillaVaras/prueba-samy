@@ -4,19 +4,24 @@ import "./Main.scss"
 
 const Main = (props) => {
 
-    const {productsData, likesCounter, lastProductRef} = props;
+    const {productsData, likesCounter, loading, error, lastProductRef} = props;
 
     const products = productsData.map((product, index) => {
-        if( productsData.lenght === index + 1) {
+        if(productsData.length === index + 1) {
             return (
                 <li key={product.id}>
-                <Product productData={product} likesCounter={likesCounter} lastProductRef={lastProductRef}/>
+                <Product 
+                    productData={product} 
+                    likesCounter={likesCounter} 
+                    lastProductRef={lastProductRef}
+                    src={product.image}
+                />
             </li>
             )
         } else {
             return (
                 <li key={product.id}>
-                    <Product productData={product} likesCounter={likesCounter} />
+                    <Product productData={product} likesCounter={likesCounter} src={product.image} />
                 </li>
             )
         }
@@ -28,6 +33,8 @@ const Main = (props) => {
             <ul className="main--productsList">
                 {products}
             </ul>
+            <p>{loading && "Cargando... "}</p>
+            <p>{error && "Se ha producido un error"}</p>
             
         </main>
     )
