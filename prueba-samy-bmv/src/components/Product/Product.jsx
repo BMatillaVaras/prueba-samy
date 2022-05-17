@@ -1,7 +1,8 @@
 import { useState } from "react";
 
-import likeIcon from "../../images/like_icon.png"
-import unlikeIcon from "../../images/unlike_icon.png"
+import likeIcon from "../../images/like_icon.png";
+import unlikeIcon from "../../images/unlike_icon.png";
+import repostIcon from "../../images/repost_icon.png";
 
 import "./Product.scss"
 
@@ -22,16 +23,19 @@ const Product = (props) => {
     return (
         <>
             <article ref={lastProductRef} className="article">
-                <p className="article--price">{productData.price} €</p>
-                <img src={src} alt={`Imagen de ${productData.title}`} title={`Imagen de ${productData.title}`} className="article--img"/>
-                <div>
-                    <h3>{productData.title}</h3>
-                    <h4>{productData.author}</h4>
+                <div className="article--priceContainer">
+                  <p className="article--priceContainer__price">{productData.price} €</p>
                 </div>
-                <div>
-                    <div>
-                        <p>{productData.likes_count}</p>
-                        <button onClick={handleClick}>
+                
+                <img src={src} alt={`Imagen de ${productData.title}`} title={`Imagen de ${productData.title}`} className="article--img"/>
+                <div className="article--titleContainer">
+                    <h3 className="article--titleContainer__title">{productData.title}</h3>
+                    <h4 className="article--titleContainer__author">by <span>{productData.author}</span></h4>
+                </div>
+                <div className="article--iconsContainer">
+                    <div className="article--iconsContainer__like">
+                        <p className="like--counter">{productData.likes_count}</p>
+                        <button onClick={handleClick} className="like--button">
                         {like ? (
                             <img 
                                 src={likeIcon} 
@@ -48,6 +52,17 @@ const Product = (props) => {
                             />
                             )}
                             
+                        </button>
+                        
+                    </div>
+                    <div className="article--iconsContainer__repost">
+                        <p className="repost--counter">000</p>
+                        <button className="repost--button">
+                            <img 
+                                src={repostIcon} 
+                                alt="icono de repost" 
+                                title="icono de repost"
+                            />
                         </button>
                         
                     </div>

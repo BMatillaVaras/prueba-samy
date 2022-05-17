@@ -5,7 +5,8 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    // width: 100%;
+    width: 360px;
     padding: 35px 25px;
     &--logo {
         width: 80px;
@@ -21,4 +22,17 @@
             color: $placeholder-text;
         }
     }
+
+    @media all and (min-width: 700px) {
+        width: 700px;
+    }
+
+    @media all and (min-width: 1050px) {
+        width: 1050px;
+    }
+
+    @media all and (min-width: 1400px) {
+        width: 1400px;
+    }
+
 }
