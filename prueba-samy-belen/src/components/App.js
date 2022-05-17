@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import getImages from "../services/getImages";
-import searchElement from "../services/searchElemnt";
+import getProducts from "../services/getProducts";
+import searchElement from "../services/searchElement";
 import countLikesPost from "../services/countLikesPost";
 
 import './App.scss';
@@ -15,7 +15,7 @@ function App() {
   const [pageNumber, setPageNumber] = useState(1);
 
   useEffect(() => {
-    getImages().then((response) => {
+    getProducts().then((response) => {
         setProductsData(response);
     });
     window.addEventListener("scroll", handleScroll);

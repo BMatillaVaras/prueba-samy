@@ -1,4 +1,4 @@
-const getImages = () => {
+const getProducts = () => {
     return fetch("http://localhost:3100/images")
     .then((response) => response.json())
     .then((data) => {
@@ -16,4 +16,4 @@ const getImages = () => {
     })
 }
 
-export default getImages; 
+export default getProducts; 
