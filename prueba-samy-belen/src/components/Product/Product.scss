@@ -1,0 +1,110 @@
+@import "../../styles/variables.scss";
+
+.article {
+    max-width: 350px;
+    background-color: $bg-color-primary;
+    border: 1px solid #e2e2e2;
+    height: 440px;
+    margin-bottom: 15px;
+    &--priceContainer {
+        position: relative;
+        width: 0;
+        height: 0;
+        border-bottom: 60px solid transparent;
+        border-left: 120px solid $bg-color-primary; 
+        z-index: 10;
+        &__price {
+            width: 120px;
+            font-family: $font-family-price;
+            font-size: 16px;
+            padding: 10px 0 0 10px;
+            position: relative;
+            left: -120px;
+        }
+    }
+    &--img  {
+        max-width: 300px;
+        transform: translate(0, -60px);
+    }
+    &--titleContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+        max-width: 300px;
+        transform: translate(0, -60px);
+        &__title {
+            font-family: $font-family-title;
+            font-size: 20px;
+            text-transform: uppercase;
+        }
+        &__author {
+            font-family: $font-family-text;
+            color: $placeholder-text;
+        }
+        &__author span {
+            font-family: $font-family-text;
+            color: black
+        }
+    }
+    &--iconsContainer {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        transform: translate(0, -60px);
+        &__like, &__repost {
+            width: 50%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            border-top: 1px solid #e2e2e2;
+            padding: 10px 0;
+            .like--counter, .repost--counter {
+                font-family: $font-family-price;
+            }
+            .like--button, .repost--button {
+                border: none;
+                background-color: $bg-color-primary;
+                padding-left: 10px;
+            }
+        }
+        &__like {
+            border-right: 1px solid #e2e2e2;
+        }
+    }
+
+    @media all and (min-width: 700px) {
+        margin-bottom: 0;
+        height: 377px;
+
+        &--iconsContainer {
+            flex-direction: column;
+            transform: translate(100px, -430px);
+            padding-top: 10px;
+            &__like, &__repost {
+                flex-direction: column-reverse;
+                border-top: none;
+                padding: 0;
+                .like--counter, .repost--counter {
+                    color: $bg-color-primary;
+                    padding-top: 5px;
+                }
+                .like--button, .repost--button {
+                    border: none;
+                    background-color: none;
+                    padding-left: 0;
+                    border-radius: 50%;
+                    height: 35px;
+                    width: 35px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+            &__like {
+                border-right: none;
+            }
+        }
+    }
+}
