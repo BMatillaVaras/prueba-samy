@@ -19,12 +19,12 @@ Tiene la posibilidad de cargar un scroll infinito con la paginación, así como 
 
 
 Para poder ejecutarla tenemos que: 
-1. *Entrar en la carpeta "front-test-master" y ejecutar :*
+1. **Entrar en la carpeta "front-test-master" y ejecutar :**
 ```
 npm run mocks
 ```
 
-2. *Entrar en la carpeta "prueba-samy-belen" y ejecutar:*
+2. **Entrar en la carpeta "prueba-samy-belen" y ejecutar:**
 ```
 npm start
 ```
